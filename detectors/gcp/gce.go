@@ -30,7 +30,7 @@ const machineTypeMetadataAttr = "instance/machine-type"
 // https://cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#checking_if_a_vm_instance_is_part_of_a_mig
 const createdByInstanceAttr = "created-by"
 
-func(d *detector) GCECustomMetadata(attributeKey string) (string, error) {
+func(d *Detector) GCECustomMetadata(attributeKey string) (string, error) {
 	metadataUrl := fmt.Sprintf( "instance/attributes/%s", attributeKey)
 	attributeValue, err := metadata.GetWithContext(context.TODO(), metadataUrl)
 	if err != nil {
